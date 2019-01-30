@@ -23,13 +23,16 @@
 
 - RDD
 A Resilient Distributed Dataset (RDD)
+
 弹性  分布式    数据集
 
-Represents an ：
-    immutable, 不可变
-    partitioned collection of elements 分区
-        Array(1,2,3,4,5,6,7,8,9)   3个分区（1，2，3）（4，5，6）（7，8，9）
-    that can be operated on in parallel. 并行计算的问题
+```
+    Represents an ：
+        immutable, 不可变
+        partitioned collection of elements 分区
+            Array(1,2,3,4,5,6,7,8,9)   3个分区（1，2，3）（4，5，6）（7，8，9）
+        that can be operated on in parallel. 并行计算的问题
+```
 
 
 
@@ -75,12 +78,12 @@ abstract class RDD[T: ClassTag](
 
 5大特性源码体现
 
-def compute(split: Partition, context: TaskContext): Iterator[T]  特性2
+    def compute(split: Partition, context: TaskContext): Iterator[T]  特性2
 
-protected def getPartitions: Array[Partition]   特性1
+    protected def getPartitions: Array[Partition]   特性1
 
-protected def getDependencies: Seq[Dependency[_]] = deps   特性3
+    protected def getDependencies: Seq[Dependency[_]] = deps   特性3
 
-def getPreferredLocations(split: Partition): Seq[String]   特性5
+    def getPreferredLocations(split: Partition): Seq[String]   特性5
 
-val partitioner: Option[Partitioner] = None  特性4
+    val partitioner: Option[Partitioner] = None  特性4
