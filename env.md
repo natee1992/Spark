@@ -41,11 +41,17 @@ export PATH=$SPARK_HOME/bin:$PATH
 
 ```
 - hadoop 环境搭建
+
 **HDFS相关**
+
 *hadoop-env.sh*
+
 > vim hadoop-2.6.0-cdh5.7.0/etc/hadoop/hadoop-env.sh
+
 查看java环境
+
 > echo $JAVA_HOME
+
 ```
 # 将环境变量配入
 #export JAVA_HOME=${JAVA_HOME}   # -----  注释
@@ -55,6 +61,7 @@ export JAVA_HOME=/home/hadoop/app/jdk1.8.0_91
 
 ```
 *core-site.xml*
+
 ```
 # 插入node-name
 <configuration>
@@ -64,7 +71,9 @@ export JAVA_HOME=/home/hadoop/app/jdk1.8.0_91
 </property>
 </configuration>
 ```
+
 *hdfs-site.xml*
+
 ```
 <configuration>
 <property>
@@ -85,7 +94,9 @@ export JAVA_HOME=/home/hadoop/app/jdk1.8.0_91
 </configuration>
 ```
 **yarn相关**
+
 *mapred-site.xml*
+
 ```
 <configuration>
 <property>
@@ -94,7 +105,9 @@ export JAVA_HOME=/home/hadoop/app/jdk1.8.0_91
 </property>
 </configuration>
 ```
+
 *yarn-site.xml*
+
 ```
 configuration>
 
@@ -110,18 +123,24 @@ configuration>
 #### 启动
 
 - 启动HDFS前格式化
+
 *格式化之前需要将tmp中的文件删除，否则会出现datanode无法启动，原因如下*
+
 ```
 当我们使用hadoop namenode -format格式化namenode时，会在namenode数据文件夹（这个文件夹为自己配置文件中dfs.name.dir的路径）中保存一个current/VERSION文件，记录clusterID，datanode中保存的current/VERSION文件中的clustreID的值是上一次格式化保存的clusterID，这样，datanode和namenode之间的ID不一致。
 ```
+
 > cd hadoop-2.6.0-cdh5.7.0/bin
 > ./hadoop namenode -format
 
 - 启动HDFS
+
 > cd hadoop-2.6.0-cdh5.7.0/sbin
 > ./start-dfs.sh 
 > jps
+
 查看启动情况
+
 ```
 15600 Jps
 14824 NameNode
