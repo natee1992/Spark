@@ -76,7 +76,11 @@ abstract class RDD[T: ClassTag](
 5大特性源码体现
 
 def compute(split: Partition, context: TaskContext): Iterator[T]  特性2
+
 protected def getPartitions: Array[Partition]   特性1
+
 protected def getDependencies: Seq[Dependency[_]] = deps   特性3
+
 def getPreferredLocations(split: Partition): Seq[String]   特性5
+
 val partitioner: Option[Partitioner] = None  特性4
