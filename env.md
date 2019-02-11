@@ -227,22 +227,3 @@ SPARK_HISTORY_OPTS="-Dspark.history.fs.logDirectory=hdfs://hadoop000:8020/direct
 
 ```
 ---
-
-### Spark Core
-
-- 什么是RDD
-
-- RDD特性
-
-- RDD特性在源码中的体现
-
-- 图解RDD
-
-- SparkContext & SprakConf
-
-- pyspark 脚本解析
-
-- RDD的创建方式
-
-- Spark应用程序开发和运行
-

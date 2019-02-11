@@ -87,3 +87,12 @@ abstract class RDD[T: ClassTag](
     def getPreferredLocations(split: Partition): Seq[String]   特性5
 
     val partitioner: Option[Partitioner] = None  特性4
+
+
+- SparkContext & SparkConf
+
+1.  创建SparkContext（连接到Spark“集群”：local standalone yarn mesos k8s）通过SparkContext来创建RDD，广播变量到集群
+2.  创建SparkContext之前还需要创建一个SparkConf对象
+
+
+ 
